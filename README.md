@@ -39,6 +39,7 @@ Components you can drop into a unit:
 | Component | Use |
 | --- | --- |
 | `<Aside>` | Margin note beside the next paragraph (inline on phones) |
+| `<Simple>` | A plain-English version of the section, shown only when the reader turns on Simple English mode. Put one under each `##` heading. |
 | `<NoCalculus>` | The big red "I did not learn calculus" button. Put it after any equation with `dN/dt` and write the arithmetic version inside. |
 | `<Flashcards deck="unique-id" cards={[{ front, back }]} />` | Flip cards; known cards are remembered per browser |
 | `<Quiz question choices answer explanation />` | One multiple-choice question; `answer` is the zero-based index |

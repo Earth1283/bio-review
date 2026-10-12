@@ -4,15 +4,30 @@ order: 3
 summary: How growth slows as a population fills up its environment, and levels off at the carrying capacity.
 ---
 
+import Simple from '../../components/Simple.astro';
 import Aside from '../../components/Aside.astro';
 import NoCalculus from '../../components/NoCalculus.astro';
 import GrowthModel from '../../components/GrowthModel.svelte';
 import Flashcards from '../../components/Flashcards.svelte';
 import Quiz from '../../components/Quiz.svelte';
 
+<Simple>
+
+In real life, food and space run out. When a place gets crowded, each individual gets less, so the population grows more slowly. Think of a party: the first guests have lots of room and snacks. The hundredth guest gets a corner and half a cracker.
+
+</Simple>
+
 Exponential growth assumes resources never run out. Real environments fill up. As a population gets more crowded, each individual gets less food, water, space, and shelter, and the population grows more and more slowly. The logistic model describes this.
 
 ## Carrying capacity
+
+<Simple>
+
+**Carrying capacity**, written **K**, is the biggest population a place can feed and hold for a long time.
+
+It can change. A rainy year with lots of grass can raise it. A dry year can lower it. K is not a rule the animals agreed to. It is just what the place can handle.
+
+</Simple>
 
 <Aside>
 **Limiting resources** set $K$: energy, water, nutrients, shelter, nesting sites, and refuges from predators.
@@ -21,6 +36,14 @@ Exponential growth assumes resources never run out. Real environments fill up. A
 The **carrying capacity**, $K$, is the maximum population size that a particular environment can sustain. It isn't a fixed number for a species. It varies from place to place, and over time in one place, as the amount of limiting resources changes. A wet year can raise $K$ for a grassland mouse population; a drought lowers it.
 
 ## The logistic growth equation
+
+<Simple>
+
+The logistic equation is the exponential equation × **how much room is left**.
+
+When the population is small, there is lots of room, so it grows almost as fast as exponential growth. When it gets close to K, there is almost no room, so growth almost stops. The party is full. No more guests.
+
+</Simple>
 
 The logistic model starts from exponential growth and multiplies it by a term that shrinks as $N$ gets close to $K$:
 
@@ -57,6 +80,14 @@ To see the S-curve without calculus, start at some $N$, add the "per year" amoun
 
 ## The S-shaped curve
 
+<Simple>
+
+Draw logistic growth on a graph and it looks like the letter **S**. Slow at the start, fast in the middle, slow again at the top.
+
+It grows fastest when it is at **half of K**. Small populations grow slowly because there are only a few parents. Big populations grow slowly because there is no room. The middle has the best of both.
+
+</Simple>
+
 Plotted over time, logistic growth makes an **S-shaped** (sigmoid) curve: slow at first, then fast, then leveling off at $K$. Scrub through time with the time slider, and watch the dot on the right-hand chart climb and then come back down the hump.
 
 <div class="wide">
@@ -74,6 +105,14 @@ Try these:
 - Raise $r$. The population gets to $K$ sooner, but it doesn't end up any bigger.
 
 ## How well does it fit real populations?
+
+<Simple>
+
+Some real populations follow the S shape nicely. Many don't.
+
+Some go above K and then crash back down, because they notice the crowding too late (like eating a whole cake and only then feeling full). And some very small populations struggle because it is hard to find a partner when there is almost nobody around.
+
+</Simple>
 
 Some lab populations follow it closely. *Paramecium* grown in a constant environment with a steady food supply trace out a nearly perfect S-curve. Most populations don't, because the model makes simplifying assumptions:
 

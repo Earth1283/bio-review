@@ -1,0 +1,32 @@
+<div class="simple-english">
+  <p class="simple-english-label">In simple English</p>
+  <slot />
+</div>
+
+<style>
+  .simple-english {
+    display: none;
+    clear: right;
+    margin: 1rem 0 1.6rem;
+    padding: 1rem 1.2rem;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--third) 11%, var(--paper));
+    font-family: var(--sans);
+    font-size: 1.08rem;
+    line-height: 1.6;
+  }
+
+  :global(html[data-simple-english]) .simple-english {
+    display: block;
+  }
+
+  .simple-english-label {
+    font-weight: 600;
+    color: var(--third);
+    margin: 0 0 0.4rem;
+  }
+
+  .simple-english :global(p:last-child) {
+    margin-bottom: 0;
+  }
+</style>

@@ -4,15 +4,30 @@ order: 2
 summary: How a population grows when nothing holds it back, and why that can't last for long.
 ---
 
+import Simple from '../../components/Simple.astro';
 import Aside from '../../components/Aside.astro';
 import NoCalculus from '../../components/NoCalculus.astro';
 import GrowthModel from '../../components/GrowthModel.svelte';
 import Flashcards from '../../components/Flashcards.svelte';
 import Quiz from '../../components/Quiz.svelte';
 
+<Simple>
+
+This unit is about how a population grows when life is perfect: endless food, endless space, and no problems getting worse as it grows. Basically an all-you-can-eat buffet that never closes. Real places are never like this for long, but it is a good place to start.
+
+</Simple>
+
 The exponential model describes how a population grows in an **idealized, unlimited environment**: plenty of food and space, and no disease or predators getting worse as the population gets bigger. No real environment is like that for long, but the model is the baseline every other model is built on.
 
 ## Change in size is births minus deaths
+
+<Simple>
+
+A population gets bigger when more are born than die. It gets smaller when more die than are born. That's it. That is the whole idea.
+
+The letter **r** tells you how fast each individual adds to the population. If r is more than 0, the population grows. If r is exactly 0, it stays the same size. If r is less than 0, it gets smaller.
+
+</Simple>
 
 Populations change through births, deaths, immigration, and emigration. To keep the model simple, ignore migration. Then the change in population size $N$ over a stretch of time $t$ is:
 
@@ -35,6 +50,14 @@ $$
 - If $r < 0$, the population shrinks.
 
 ## The exponential growth equation
+
+<Simple>
+
+The equation says: **how fast the population grows = r × how many there are now**.
+
+More individuals means faster growth, because there are more parents. Two rabbits make a few rabbits. A thousand rabbits make a LOT of rabbits.
+
+</Simple>
 
 Ecologists usually write the same idea for an instant in time rather than a stretch of it. Under ideal conditions the per capita rate is at its maximum, $r_{\text{max}}$, the **intrinsic rate of increase**:
 
@@ -64,6 +87,14 @@ On a test, this equation is a multiplication problem. If $N = 2{,}000$ and $r_{\
 
 ## The J-shaped curve
 
+<Simple>
+
+Draw exponential growth on a graph and it looks like the letter **J**. At first it is slow and boring. Then it goes faster, and faster, and then it shoots straight up.
+
+This happens because every new baby will later have babies too. It is like a rumor at school: one person tells two people, they each tell two more, and by lunch everyone knows.
+
+</Simple>
+
 Plotted over time, exponential growth makes a **J-shaped curve**. It starts out looking flat, then shoots upward. The rate $r$ never changes. What changes is $N$: the more individuals there are, the more new ones get added each unit of time.
 
 <div class="wide">
@@ -79,6 +110,14 @@ Move the time slider and watch the right-hand chart. For exponential growth, the
 A larger $r_{\text{max}}$ makes the curve steeper. Bacteria and insects can have very high intrinsic rates of increase; large mammals have low ones. Given enough time, though, every exponentially growing population ends up with a J-shaped curve.
 
 ## Where you see it in nature
+
+<Simple>
+
+This kind of growth happens when a population arrives in a new, empty place, or when it bounces back after something wiped most of it out.
+
+It never lasts forever. Sooner or later the buffet runs out of food.
+
+</Simple>
 
 Exponential growth shows up when a population is far below the limits of its environment, typically:
 

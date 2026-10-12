@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import GrowthModel from '../components/GrowthModel.svelte';
+import Simple from '../components/Simple.astro';
 import { withBase } from '../lib/url';
 
 const unitsInStudyOrder = (await getCollection('units')).sort((a, b) => a.data.order - b.data.order);
@@ -14,6 +15,10 @@ const unitsInStudyOrder = (await getCollection('units')).sort((a, b) => a.data.o
       A population ecology review you can run. Drag the growth rate and the carrying capacity, then work through the units
       in order.
     </p>
+    <Simple>
+      <p><strong>Population ecology</strong> is the study of how the number of living things of one kind changes over time. A <strong>population</strong> is all the animals or plants of one kind in one place.</p>
+      <p>This site explains why populations get bigger, why they stop getting bigger, and why some go up and down again and again, like a very slow roller coaster. The chart below shows two ways a population can grow. Move the sliders to change how fast it grows and how many living things the place can hold.</p>
+    </Simple>
   </section>
 
   <div class="hero-model">

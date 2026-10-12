@@ -4,6 +4,7 @@ order: 1
 summary: How ecologists count a population, describe how it's spread out, and track who is born and who dies.
 ---
 
+import Simple from '../../components/Simple.astro';
 import Aside from '../../components/Aside.astro';
 import MarkRecapture from '../../components/MarkRecapture.svelte';
 import Dispersion from '../../components/Dispersion.svelte';
@@ -11,11 +12,27 @@ import Survivorship from '../../components/Survivorship.svelte';
 import Flashcards from '../../components/Flashcards.svelte';
 import Quiz from '../../components/Quiz.svelte';
 
+<Simple>
+
+A **population** is a group of the same kind of living thing in the same place. All the deer in one forest. All the pigeons in one city (yes, even that one pigeon that keeps staring at you).
+
+This unit is about three things: how many there are in a space (**density**), how they are spread out (**dispersion**), and who is born and who dies (**demographics**). Other living things change all three. These are **biotic** factors, like food, predators, and germs. Non-living things change them too. These are **abiotic** factors, like heat, water, and sunlight.
+
+</Simple>
+
 A **population** is a group of individuals of one species living in the same general area at the same time. Members of a population rely on the same resources, are affected by the same environmental factors, and are likely to interact and breed with one another.
 
 This unit covers three ways of describing a population: how crowded it is (**density**), how it's spread out (**dispersion**), and who is being born and dying (**demographics**). All three are shaped by **biotic** factors (living things: food, predators, competitors, disease, mates) and **abiotic** factors (non-living conditions: temperature, water, light, soil, nutrients, disturbances such as fire).
 
 ## Density: how many per unit of space
+
+<Simple>
+
+**Density** means how crowded a population is: how many there are in one area.
+
+Scientists almost never count every single animal. Fish do not line up to be counted. So scientists count a small part and multiply. **Mark–recapture** is one way to do it. Catch some animals, put a harmless mark on them, and let them go. Later, catch some again. If lots of the new catch have marks, the population is small. If almost none have marks, the population is big.
+
+</Simple>
 
 <Aside>
 **Density** is the number of individuals per unit area or volume, such as 120 oak trees per km² or 5 million bacteria per mL.
@@ -61,6 +78,18 @@ Density goes **up** with **births** and **immigration** (individuals arriving fr
 
 ## Dispersion: the spacing pattern
 
+<Simple>
+
+**Dispersion** is the pattern of where individuals are.
+
+- **Clumped**: they stay in groups, like friends sitting together at lunch.
+- **Uniform**: they are evenly spaced, like people at a bus stop who really don't want to talk to each other.
+- **Random**: there is no pattern at all.
+
+The pattern tells you why. Animals that guard their own space end up evenly spread out. Animals that need the same rare pond all end up clumped around it.
+
+</Simple>
+
 **Dispersion** is the pattern of spacing among individuals within the population's boundaries. It's worth knowing because the pattern tells you something about the environment and about how individuals interact.
 
 <div class="wide">
@@ -70,6 +99,18 @@ Density goes **up** with **births** and **immigration** (individuals arriving fr
 The tags show whether each cause is **biotic** or **abiotic**. On a test, be ready to name the pattern, give a cause, and say which kind of factor that cause is.
 
 ## Demographics: births and deaths by age
+
+<Simple>
+
+**Demographics** are numbers about who is born and who dies, and at what age.
+
+A **life table** follows a group born at the same time and counts how many are still alive each year. A **survivorship curve** is the same thing drawn as a picture.
+
+- **Type I**: most live to old age. Humans and elephants.
+- **Type II**: the same share dies at every age. Danger is always there, but never extra.
+- **Type III**: almost all die as babies, but the few that make it can live a long time. Oysters and most fish. Being a baby oyster is a very tough job.
+
+</Simple>
 
 **Demography** is the study of the vital statistics of a population and how they change over time. Its main tools are life tables and survivorship curves.
 

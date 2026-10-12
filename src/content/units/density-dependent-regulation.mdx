@@ -4,6 +4,7 @@ order: 5
 summary: The negative feedback that holds populations in check, and why predators and prey rise and fall in cycles.
 ---
 
+import Simple from '../../components/Simple.astro';
 import Aside from '../../components/Aside.astro';
 import NoCalculus from '../../components/NoCalculus.astro';
 import DensityDependence from '../../components/DensityDependence.svelte';
@@ -11,9 +12,25 @@ import PredatorPrey from '../../components/PredatorPrey.svelte';
 import Flashcards from '../../components/Flashcards.svelte';
 import Quiz from '../../components/Quiz.svelte';
 
+<Simple>
+
+Something has to stop populations from growing forever, or the world would be knee-deep in rabbits. This unit is about the things that slow a population down more and more as it gets more crowded.
+
+</Simple>
+
 The logistic model says growth slows as a population gets crowded. This unit is about what actually does the slowing, and why it matters that those factors depend on density.
 
 ## Density-dependent and density-independent factors
+
+<Simple>
+
+**Density-dependent** factors get stronger when a population is more crowded. For example, a cold spreads faster in a packed classroom than in an empty one.
+
+**Density-independent** factors hurt a population the same amount whether it is crowded or not. A huge storm doesn't check how crowded you are first.
+
+Only density-dependent factors can keep a population near one size. When it gets too crowded, they push it down. When it gets small, they ease off. It is like a thermostat for population size.
+
+</Simple>
 
 <Aside>
 A factor is density **dependent** if its per capita effect changes with density. A hailstorm that kills 20% of a population whether it's crowded or sparse is density **independent**.
@@ -32,6 +49,19 @@ Turn both buttons off. With neither rate depending on density, nothing stops the
 
 ## How density dependence works
 
+<Simple>
+
+There are lots of ways crowding slows a population down:
+
+- Less food for each one.
+- Not enough homes or territories to go around.
+- Germs spread faster.
+- Predators find dinner more easily.
+- Waste builds up and poisons everyone (yeast gets poisoned by its own alcohol, which is a very yeast way to go).
+- Some animals' bodies simply make fewer babies when things get too crowded.
+
+</Simple>
+
 Ecologists have found many density-dependent mechanisms in nature:
 
 | Mechanism                   | How crowding slows growth                                                                                                                  |
@@ -44,6 +74,21 @@ Ecologists have found many density-dependent mechanisms in nature:
 | **Intrinsic factors**       | Some animals' own physiology changes at high density. Crowded white-footed mice reproduce less even with plenty of food, because of hormonal changes and aggression. |
 
 ## Population dynamics
+
+<Simple>
+
+Real populations go up and down a lot. They are not calm, flat lines.
+
+Predators and prey often go up and down in a repeating loop:
+
+1. Lots of rabbits. Foxes eat well and have lots of babies.
+2. Lots of foxes. They eat too many rabbits.
+3. Few rabbits. Foxes go hungry, and there are fewer foxes.
+4. Few foxes. Rabbits relax and have lots of babies. Back to step 1.
+
+It is a never-ending soap opera.
+
+</Simple>
 
 Populations in nature rarely sit still at $K$. **Population dynamics** is the study of how and why population sizes change over time.
 
@@ -100,6 +145,14 @@ Things to try:
 Real hare cycles aren't explained by predators alone. Field experiments in the Yukon added food, kept predators out, or both. Hare populations grew most when they got extra food *and* protection from predators, so both factors drive the cycle.
 
 ## Immigration, emigration, and metapopulations
+
+<Simple>
+
+Sometimes one kind of animal lives in lots of small groups in different spots. Some individuals move between the groups. A small group can die out, and later new ones move in from next door.
+
+This network of groups is called a **metapopulation**. It is like a chain of shops: one shop can close, but the brand keeps going.
+
+</Simple>
 
 So far we've treated populations as isolated, but individuals move between them. Many species live as a **metapopulation**: a group of local populations linked by dispersal.
 
