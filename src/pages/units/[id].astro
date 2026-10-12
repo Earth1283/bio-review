@@ -1,0 +1,111 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ReviewedToggle from '../../components/ReviewedToggle.svelte';
+import { withBase } from '../../lib/url';
+
+export async function getStaticPaths() {
+  const unitsInStudyOrder = (await getCollection('units')).sort((a, b) => a.data.order - b.data.order);
+  return unitsInStudyOrder.map((unit, index) => ({
+    params: { id: unit.id },
+    props: {
+      unit,
+      previousUnit: unitsInStudyOrder[index - 1],
+      nextUnit: unitsInStudyOrder[index + 1],
+      unitCount: unitsInStudyOrder.length,
+    },
+  }));
+}
+
+const { unit, previousUnit, nextUnit, unitCount } = Astro.props;
+const { Content } = await render(unit);
+---
+
+<Base title={unit.data.title} description={unit.data.summary}>
+  <header class="unit-header">
+    <p class="unit-position">Unit {unit.data.order} of {unitCount}</p>
+    <h1>{unit.data.title}</h1>
+    <p class="lede">{unit.data.summary}</p>
+  </header>
+
+  <article class="prose">
+    <Content />
+  </article>
+
+  <section class="unit-end prose" aria-label="Finish this unit">
+    <ReviewedToggle client:load unitId={unit.id} />
+    <nav class="unit-nav" aria-label="Other units">
+      {
+        previousUnit && (
+          <a class="previous" href={withBase(`units/${previousUnit.id}/`)}>
+            <span>Previous</span>
+            {previousUnit.data.title}
+          </a>
+        )
+      }
+      {
+        nextUnit && (
+          <a class="next" href={withBase(`units/${nextUnit.id}/`)}>
+            <span>Next</span>
+            {nextUnit.data.title}
+          </a>
+        )
+      }
+    </nav>
+  </section>
+</Base>
+
+<style>
+  .unit-header {
+    max-width: 48rem;
+    padding-block: 3rem 1.5rem;
+  }
+
+  .unit-position {
+    font-family: var(--sans);
+    font-weight: 500;
+    color: var(--prey);
+    margin-bottom: 0.6rem;
+  }
+
+  .lede {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: var(--measure);
+  }
+
+  .unit-end {
+    clear: both;
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .unit-nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 2.5rem;
+  }
+
+  .unit-nav a {
+    display: block;
+    text-decoration: none;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+
+  .unit-nav span {
+    display: block;
+    font-family: var(--sans);
+    font-weight: 500;
+    color: var(--ink-soft);
+    margin-bottom: 0.2rem;
+  }
+
+  .next {
+    grid-column: 2;
+    text-align: right;
+  }
+</style>

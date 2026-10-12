@@ -1,0 +1,90 @@
+<details class="nocalc">
+  <summary>
+    <span class="label-closed">I did not learn calculus</span>
+    <span class="label-open">OK. No calculus. Hide this</span>
+  </summary>
+  <div class="nocalc-body">
+    <slot />
+  </div>
+</details>
+
+<style>
+  .nocalc {
+    margin: 1.2rem 0 2rem;
+  }
+
+  summary {
+    list-style: none;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 1.05rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: radial-gradient(circle at 35% 25%, #ff6b5e, var(--alarm) 55%);
+    border: 2px solid var(--alarm-deep);
+    border-radius: 14px;
+    padding: 0.7rem 1.4rem 0.6rem;
+    box-shadow:
+      0 6px 0 var(--alarm-deep),
+      0 8px 14px rgb(120 10 5 / 0.35);
+    transform: rotate(-1.2deg);
+    transition:
+      transform 90ms ease-out,
+      box-shadow 90ms ease-out;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  summary:hover {
+    transform: rotate(-1.2deg) translateY(-1px);
+  }
+
+  summary:active,
+  .nocalc[open] summary {
+    transform: rotate(0deg) translateY(5px);
+    box-shadow:
+      0 1px 0 var(--alarm-deep),
+      0 2px 4px rgb(120 10 5 / 0.3);
+  }
+
+  .label-open {
+    display: none;
+  }
+
+  .nocalc[open] .label-open {
+    display: inline;
+  }
+
+  .nocalc[open] .label-closed {
+    display: none;
+  }
+
+  .nocalc::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition:
+      block-size 280ms ease-out,
+      content-visibility 280ms allow-discrete;
+  }
+
+  .nocalc[open]::details-content {
+    block-size: auto;
+  }
+
+  .nocalc-body {
+    margin-top: 1.2rem;
+    padding: 1rem 1.2rem;
+    border: 2px dashed var(--alarm);
+    border-radius: 10px;
+  }
+
+  .nocalc-body :global(p:last-child) {
+    margin-bottom: 0;
+  }
+</style>

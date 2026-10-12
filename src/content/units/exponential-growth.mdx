@@ -1,0 +1,126 @@
+---
+title: Exponential growth
+order: 2
+summary: How a population grows when nothing holds it back, and why that can't last for long.
+---
+
+import Aside from '../../components/Aside.astro';
+import NoCalculus from '../../components/NoCalculus.astro';
+import GrowthModel from '../../components/GrowthModel.svelte';
+import Flashcards from '../../components/Flashcards.svelte';
+import Quiz from '../../components/Quiz.svelte';
+
+The exponential model describes how a population grows in an **idealized, unlimited environment**: plenty of food and space, and no disease or predators getting worse as the population gets bigger. No real environment is like that for long, but the model is the baseline every other model is built on.
+
+## Change in size is births minus deaths
+
+Populations change through births, deaths, immigration, and emigration. To keep the model simple, ignore migration. Then the change in population size $N$ over a stretch of time $t$ is:
+
+$$
+\frac{\Delta N}{\Delta t} = B - D
+$$
+
+<Aside>
+**Per capita** means per individual. If 100 rabbits produce 34 offspring in a year, the per capita birth rate is 0.34.
+</Aside>
+
+Births and deaths both scale with how many individuals there are. Write them as per capita rates: $B = bN$ and $D = mN$, where $b$ is the per capita birth rate and $m$ the per capita death rate. Their difference is the **per capita rate of increase**, $r = b - m$.
+
+$$
+\frac{\Delta N}{\Delta t} = rN
+$$
+
+- If $r > 0$, the population grows.
+- If $r = 0$, births and deaths cancel out. This is **zero population growth** (ZPG). Births and deaths still happen; they just balance.
+- If $r < 0$, the population shrinks.
+
+## The exponential growth equation
+
+Ecologists usually write the same idea for an instant in time rather than a stretch of it. Under ideal conditions the per capita rate is at its maximum, $r_{\text{max}}$, the **intrinsic rate of increase**:
+
+$$
+\frac{dN}{dt} = r_{\text{max}}N
+$$
+
+<NoCalculus>
+
+$\dfrac{dN}{dt}$ just means **how fast $N$ is changing right now**. It's the same thing as $\dfrac{\Delta N}{\Delta t}$ above, measured over a moment so short it's practically zero.
+
+You can get the same behavior without calculus by counting one year at a time: each year, add $r$ times the current population.
+
+| Year | Population | Added this year ($r = 0.5$) |
+| ---- | ---------- | --------------------------- |
+| 0    | 100        | 50                          |
+| 1    | 150        | 75                          |
+| 2    | 225        | 112.5                       |
+| 3    | 337.5      | 168.75                      |
+| 4    | 506.25     | 253.1                       |
+
+The amount added grows every year, because it's always a fixed fraction of a bigger and bigger population. That is all exponential growth is. The calculus version does the same thing in infinitely small steps, so you get a smooth curve instead of a staircase.
+
+On a test, this equation is a multiplication problem. If $N = 2{,}000$ and $r_{\text{max}} = 0.05$ per year, then the population is growing by $0.05 \times 2{,}000 = 100$ individuals per year.
+
+</NoCalculus>
+
+## The J-shaped curve
+
+Plotted over time, exponential growth makes a **J-shaped curve**. It starts out looking flat, then shoots upward. The rate $r$ never changes. What changes is $N$: the more individuals there are, the more new ones get added each unit of time.
+
+<div class="wide">
+  <GrowthModel client:visible model="exponential" initialGrowthRate={0.3} initialPopulation={10} />
+</div>
+
+<Aside>
+**Doubling time** is about $0.69 / r$. With $r = 0.35$ per year, the population doubles every 2 years.
+</Aside>
+
+Move the time slider and watch the right-hand chart. For exponential growth, the number of new individuals per unit time rises in a straight line with $N$. A population of 400 adds twice as many individuals as a population of 200.
+
+A larger $r_{\text{max}}$ makes the curve steeper. Bacteria and insects can have very high intrinsic rates of increase; large mammals have low ones. Given enough time, though, every exponentially growing population ends up with a J-shaped curve.
+
+## Where you see it in nature
+
+Exponential growth shows up when a population is far below the limits of its environment, typically:
+
+- when it **colonizes a new environment**, such as an invasive species arriving somewhere with no competitors, or
+- when it **rebounds after a catastrophe** that removed most of it, such as hunting or a fire.
+
+A classic example is the African elephants of Kruger National Park in South Africa. After hunting was banned there, the population grew close to exponentially for about 60 years, at roughly 4% per year, until it was large enough to damage its own habitat.
+
+No population can keep this up. Resources run out, and growth slows. That is the next unit.
+
+## Check yourself
+
+<Flashcards
+  client:visible
+  deck="exponential-growth"
+  cards={[
+    { front: 'What does the exponential model assume about the environment?', back: 'That it is ideal and unlimited: resources never run short, so per capita birth and death rates stay constant however big the population gets.' },
+    { front: 'What is r?', back: 'The per capita rate of increase: the per capita birth rate minus the per capita death rate (r = b − m).' },
+    { front: 'What is zero population growth?', back: 'When r = 0: births and deaths still happen but cancel out, so the population size stays the same.' },
+    { front: 'What shape is an exponential growth curve?', back: 'J-shaped. The rate r is constant, but the number added per unit time keeps increasing because N keeps increasing.' },
+    { front: 'What is r_max?', back: 'The intrinsic rate of increase: the maximum per capita growth rate a species can reach under ideal conditions.' },
+    { front: 'When do real populations grow exponentially?', back: 'When they are far below their environment’s limits, such as after colonizing a new area or rebounding from a catastrophe.' },
+  ]}
+/>
+
+<Quiz
+  client:visible
+  question="A population of 500 beetles has r_max = 0.2 per month. How fast is it growing right now?"
+  choices={['0.2 beetles per month', '100 beetles per month', '500 beetles per month', '2,500 beetles per month']}
+  answer={1}
+  explanation="dN/dt = r_max × N = 0.2 × 500 = 100 beetles per month."
+/>
+
+<Quiz
+  client:visible
+  question="Two populations of the same species grow exponentially with the same r. One has 50 individuals, the other 5,000. Which statement is true?"
+  choices={[
+    'Both add the same number of individuals per year.',
+    'The larger population adds 100 times as many individuals per year.',
+    'The smaller population grows faster because it has more room.',
+    'The larger population has a higher per capita growth rate.',
+  ]}
+  answer={1}
+  explanation="With the same r, the per capita rate is identical, so the number added is proportional to N. 5,000 is 100 times 50."
+/>

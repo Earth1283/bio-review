@@ -1,0 +1,157 @@
+---
+title: Density-dependent regulation
+order: 5
+summary: The negative feedback that holds populations in check, and why predators and prey rise and fall in cycles.
+---
+
+import Aside from '../../components/Aside.astro';
+import NoCalculus from '../../components/NoCalculus.astro';
+import DensityDependence from '../../components/DensityDependence.svelte';
+import PredatorPrey from '../../components/PredatorPrey.svelte';
+import Flashcards from '../../components/Flashcards.svelte';
+import Quiz from '../../components/Quiz.svelte';
+
+The logistic model says growth slows as a population gets crowded. This unit is about what actually does the slowing, and why it matters that those factors depend on density.
+
+## Density-dependent and density-independent factors
+
+<Aside>
+A factor is density **dependent** if its per capita effect changes with density. A hailstorm that kills 20% of a population whether it's crowded or sparse is density **independent**.
+</Aside>
+
+- A **density-independent** factor affects the same *proportion* of a population no matter how dense it is. Most are **abiotic**: frost, drought, fire, floods, storms.
+- A **density-dependent** factor gets stronger as density rises: the **death rate goes up** or the **birth rate goes down** in a crowded population. Most are **biotic**.
+
+Only density-dependent factors can **regulate** a population, meaning push it back toward a stable size. That's because they create **negative feedback**: crowding makes things worse for each individual, which slows growth, which eases the crowding.
+
+<div class="wide">
+  <DensityDependence client:visible />
+</div>
+
+Turn both buttons off. With neither rate depending on density, nothing stops the population from growing, and you're back to the exponential model. Turn either one back on and an equilibrium appears. At least one rate has to respond to density for a population to be regulated.
+
+## How density dependence works
+
+Ecologists have found many density-dependent mechanisms in nature:
+
+| Mechanism                   | How crowding slows growth                                                                                                                  |
+| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Competition for resources** | More individuals share the same food and nutrients, so each gets less, and birth rates fall. Crowded plants produce fewer seeds.           |
+| **Territoriality**          | When all territories are taken, extra animals can't breed. Space, rather than food, becomes the limit.                                       |
+| **Disease**                 | Pathogens spread faster when hosts are close together, so the death rate rises with density.                                                 |
+| **Predation**               | Predators may switch to whichever prey is most abundant, and catch a larger share of a crowded prey population.                              |
+| **Toxic wastes**            | Waste builds up in crowded conditions. Yeast fermenting grapes is eventually poisoned by the ethanol it makes.                               |
+| **Intrinsic factors**       | Some animals' own physiology changes at high density. Crowded white-footed mice reproduce less even with plenty of food, because of hormonal changes and aggression. |
+
+## Population dynamics
+
+Populations in nature rarely sit still at $K$. **Population dynamics** is the study of how and why population sizes change over time.
+
+On Isle Royale, an island in Lake Superior, ecologists have tracked moose and the wolves that hunt them for decades. Both populations have risen and crashed repeatedly, driven by a mix of density-dependent factors (wolf predation, food supply) and density-independent ones (harsh winters, and disease that swept through the wolves).
+
+### Predator–prey cycles
+
+Some populations rise and fall in regular **cycles**. The best known is the snowshoe hare and the lynx that eats it, in the forests of northern Canada. Both peak roughly every 10 years, with lynx peaks trailing just behind hare peaks. That cycle shows up in more than a century of fur-trapping records.
+
+The simplest model of predators and prey is the **Lotka–Volterra model**. With $N$ prey and $P$ predators:
+
+$$
+\frac{dN}{dt} = rN - aNP
+$$
+
+$$
+\frac{dP}{dt} = baNP - mP
+$$
+
+<NoCalculus>
+
+Each equation says **how fast that population is changing right now**. Read it as a sentence:
+
+- **Prey change** = (prey born: $rN$) − (prey eaten: $aNP$).
+- **Predator change** = (new predators made from prey eaten: $b \times aNP$) − (predators dying: $mP$).
+
+The prey-eaten term, $aNP$, multiplies the two populations because a predator has to *meet* a prey animal to eat it, and meetings are more common when both are abundant.
+
+You can run the whole model as a story, one step at a time:
+
+1. Lots of prey, few predators: predators feast and multiply.
+2. Lots of predators: they eat the prey faster than the prey can reproduce, so prey numbers fall.
+3. Few prey left: predators starve and their numbers fall.
+4. Few predators: the prey recover. Back to step 1.
+
+The calculus just runs this loop in tiny steps, which is all the simulation below does.
+
+</NoCalculus>
+
+<div class="wide">
+  <PredatorPrey client:visible />
+</div>
+
+<Aside>
+**A surprise from the model:** raise the prey birth rate. The average number of predators goes up, but the average number of prey doesn't change. The extra prey get eaten.
+</Aside>
+
+Things to try:
+
+- Look at "Over time". Predator peaks come just after prey peaks, as in the hare and lynx records.
+- Switch to "Prey against predators". The cycle traces a loop around a balance point, going counterclockwise.
+- Turn on "Prey also limited by food". Now the prey are regulated by density as well, and the swings shrink.
+
+Real hare cycles aren't explained by predators alone. Field experiments in the Yukon added food, kept predators out, or both. Hare populations grew most when they got extra food *and* protection from predators, so both factors drive the cycle.
+
+## Immigration, emigration, and metapopulations
+
+So far we've treated populations as isolated, but individuals move between them. Many species live as a **metapopulation**: a group of local populations linked by dispersal.
+
+The Glanville fritillary butterfly in the Åland Islands of Finland lives in hundreds of small meadow patches. Local populations often go extinct, and new ones are founded as butterflies arrive from neighboring patches. The species persists across the region even though no single patch is safe.
+
+## Check yourself
+
+<Flashcards
+  client:visible
+  deck="density-dependent-regulation"
+  cards={[
+    { front: 'What is a density-dependent factor?', back: 'One whose effect gets stronger as population density rises: it raises the death rate or lowers the birth rate in crowded populations.' },
+    { front: 'What is a density-independent factor? Give examples.', back: 'One that affects the same proportion of the population whatever its density. Examples: frost, drought, fire, floods, storms.' },
+    { front: 'Why can only density-dependent factors regulate a population?', back: 'They create negative feedback: crowding slows growth, which reduces crowding, pushing the population back toward an equilibrium.' },
+    { front: 'Name six density-dependent mechanisms.', back: 'Competition for resources, territoriality, disease, predation, toxic wastes, and intrinsic (physiological) factors.' },
+    { front: 'Give an example of toxic wastes regulating a population.', back: 'Yeast fermenting grape juice is eventually killed by the ethanol it produces.' },
+    { front: 'What drives the snowshoe hare cycle?', back: 'Both food supply and predation. Hares increased most when experimenters gave them extra food and kept predators out.' },
+    { front: 'In predator–prey cycles, which population peaks first?', back: 'The prey. Predator peaks lag just behind, because predators multiply after prey become abundant.' },
+    { front: 'What is a metapopulation?', back: 'A group of local populations linked by immigration and emigration, where local extinctions are balanced by recolonization.' },
+  ]}
+/>
+
+<Quiz
+  client:visible
+  question="Which of these is a density-independent factor?"
+  choices={[
+    'A virus spreading through a crowded deer herd',
+    'A late frost killing 30% of a beetle population',
+    'Songbirds unable to find open territories',
+    'Plants producing fewer seeds when grown close together',
+  ]}
+  answer={1}
+  explanation="The frost kills the same proportion regardless of how crowded the beetles are. The other three all get worse as density rises."
+/>
+
+<Quiz
+  client:visible
+  question="In a lab, a bacteria population stops growing even though fresh nutrients are added daily. The culture is never cleaned. What is the most likely regulating factor?"
+  choices={['Predation', 'Territoriality', 'Accumulation of toxic wastes', 'A density-independent factor']}
+  answer={2}
+  explanation="With nutrients replenished, food isn't limiting. Waste products build up faster in a dense culture, which makes this density-dependent regulation by toxic wastes."
+/>
+
+<Quiz
+  client:visible
+  question="In the Lotka–Volterra model, prey are eaten at a rate proportional to N × P. Why multiply the two?"
+  choices={[
+    'Because predators and prey reproduce at the same rate',
+    'Because encounters between predators and prey become more frequent when either population is larger',
+    'Because prey only die when predators die',
+    'It is an arbitrary choice with no biological meaning',
+  ]}
+  answer={1}
+  explanation="A prey animal can only be eaten if it meets a predator, and the number of meetings scales with both population sizes."
+/>

@@ -1,0 +1,81 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '../styles/global.css';
+import { withBase } from '../lib/url';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const site = 'Carrying Capacity';
+const {
+  title,
+  description = 'An interactive population ecology review: density and dispersion, growth models, life histories, regulation, and the human population.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+    <title>{title ? `${title} | ${site}` : site}</title>
+    <ClientRouter />
+  </head>
+  <body>
+    <header class="site-header page">
+      <a class="wordmark" href={withBase()}>{site}</a>
+      <nav aria-label="Main">
+        <a href={withBase('#units')}>Units</a>
+      </nav>
+    </header>
+    <main class="page">
+      <slot />
+    </main>
+    <footer class="site-footer page">
+      <p>
+        A population ecology review. Source on <a href="https://github.com/Earth1283/bio-review">GitHub</a>, licensed
+        AGPL-3.0.
+      </p>
+    </footer>
+  </body>
+</html>
+
+<style>
+  .site-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding-block: 1.4rem;
+  }
+
+  .wordmark {
+    font-style: italic;
+    font-weight: 500;
+    font-size: 1.15rem;
+    text-decoration: none;
+  }
+
+  nav a {
+    font-family: var(--sans);
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  nav a:hover,
+  .wordmark:hover {
+    color: var(--prey);
+  }
+
+  .site-footer {
+    margin-top: 6rem;
+    padding-block: 2rem 3rem;
+    border-top: 1px solid var(--rule);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+</style>

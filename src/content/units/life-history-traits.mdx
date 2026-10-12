@@ -1,0 +1,136 @@
+---
+title: Life history traits
+order: 4
+summary: Why a salmon breeds once and dies while an elephant raises one calf at a time, and how natural selection shapes those schedules.
+---
+
+import Aside from '../../components/Aside.astro';
+import Flashcards from '../../components/Flashcards.svelte';
+import Quiz from '../../components/Quiz.svelte';
+
+The growth models treat $r$ and $K$ as given numbers. Where do they come from? Partly from each species' **life history**: the traits that set its schedule of reproduction and survival.
+
+## What counts as a life history
+
+A life history comes down to three questions:
+
+1. **When does reproduction begin?** This is the age at first reproduction, or age at maturity.
+2. **How often does the organism reproduce?**
+3. **How many offspring are produced each time?** For birds this is the clutch size.
+
+<Aside>
+A life history isn't something an organism chooses. It's built into the species' development, physiology, and behavior, and it changes only as the population evolves.
+</Aside>
+
+## Life history traits are products of natural selection
+
+Life history traits are **heritable** and they vary between individuals, and that variation affects how many offspring survive to reproduce. That makes them subject to natural selection, like any other trait. Over generations, a population evolves the schedule that leaves the most surviving descendants in its particular environment.
+
+No organism can do everything at once, though. Time, energy, and nutrients are limited, so life histories are shaped by **trade-offs**.
+
+### Trade-off 1: reproduction against survival
+
+Energy spent on reproduction isn't available for staying alive. In a classic experiment with European kestrels, researchers moved chicks between nests so that some parents raised enlarged broods and others raised reduced broods. The next winter, fewer of the parents with extra chicks survived. Raising more young had cost them their own survival.
+
+### Trade-off 2: once or many times
+
+<Aside>
+**Semelparity** comes from the Latin *semel*, once, and *parere*, to beget. **Iteroparity** comes from *iterum*, again.
+</Aside>
+
+- **Semelparity** (big-bang reproduction): reproduce once, all at once, then die. Pacific salmon swim upstream, spawn thousands of eggs, and die. The agave, or "century plant", grows for years, then sends up one enormous flower stalk and dies.
+- **Iteroparity** (repeated reproduction): reproduce several or many times over a lifetime. Most mammals, birds, and lizards do this; an oak tree produces acorns for decades.
+
+Which one natural selection favors depends mostly on two things: how likely the **offspring** are to survive, and how likely the **adult** is to survive to breed again.
+
+| Favoured when...                                   | Semelparity                   | Iteroparity                                 |
+| -------------------------------------------------- | ----------------------------- | ------------------------------------------- |
+| Environment                                        | Highly variable, unpredictable | Dependable                                  |
+| Offspring survival                                 | Low                           | Higher, especially for large offspring      |
+| Adult's chance of surviving to breed again         | Low                           | High                                        |
+| Competition for resources                          | Less important                | Intense, so big, well-provisioned offspring win |
+
+### Trade-off 3: many small offspring or few large ones
+
+The same resources can make many small offspring or a few well-provisioned ones.
+
+- **Many small offspring** pays off where most will die anyway, or where only a few need to land somewhere good. Dandelions release huge numbers of tiny wind-blown seeds, and a few reach open, disturbed ground.
+- **Few large offspring** pays off where each one faces tough competition. Brazil nut and coconut seeds carry big energy stores that help seedlings get started; elephants and humans pour years of parental care into each child.
+
+## r-selection and K-selection
+
+Ecologists once sorted life histories using the two parameters of the logistic model:
+
+- **K-selection** (density-dependent selection) favors traits that help individuals succeed at **high density**, near carrying capacity, where competition is intense. Think of fewer, larger offspring, lots of parental care, and late maturity.
+- **r-selection** (density-independent selection) favors traits that maximize reproduction in **uncrowded** environments, such as newly disturbed habitat. Think of many small offspring, early maturity, and little care.
+
+<Aside>
+Survivorship curves line up loosely with this: K-selected species tend toward Type I curves, r-selected species toward Type III.
+</Aside>
+
+| Trait               | Tends to be r-selected | Tends to be K-selected |
+| ------------------- | ---------------------- | ---------------------- |
+| Population density  | Well below K           | Near K                 |
+| Age at maturity     | Early                  | Late                   |
+| Offspring per event | Many                   | Few                    |
+| Offspring size      | Small                  | Large                  |
+| Parental care       | Little or none         | Extensive              |
+| Life span           | Short                  | Long                   |
+
+The r/K scheme is an oversimplification. Most species have a mix of traits, and many sit in between. Still, it's a useful shorthand and it shows up on tests, so know the contrasts in the table.
+
+## Check yourself
+
+<Flashcards
+  client:visible
+  deck="life-history-traits"
+  cards={[
+    { front: 'What are the three main life history traits?', back: 'Age at first reproduction, how often the organism reproduces, and how many offspring it produces each time.' },
+    { front: 'Why are life history traits products of natural selection?', back: 'They are heritable, they vary between individuals, and they affect how many offspring survive, so selection favors the schedules that leave the most descendants in a given environment.' },
+    { front: 'Why are there trade-offs in life histories?', back: 'Time, energy, and nutrients are limited, so investing more in one thing (such as reproduction) leaves less for another (such as survival).' },
+    { front: 'What did the kestrel brood experiment show?', back: 'Parents made to raise larger broods were less likely to survive the following winter: a trade-off between reproduction and survival.' },
+    { front: 'Semelparity vs. iteroparity?', back: 'Semelparity: reproduce once and die (Pacific salmon, agave). Iteroparity: reproduce repeatedly (most mammals, birds, oak trees).' },
+    { front: 'When is semelparity favored?', back: 'When offspring survival is low and the environment is variable or unpredictable, and adults are unlikely to survive to breed again.' },
+    { front: 'What is K-selection?', back: 'Density-dependent selection: selection for traits that help individuals succeed at high density, near carrying capacity.' },
+    { front: 'What is r-selection?', back: 'Density-independent selection: selection for traits that maximize reproductive success in uncrowded environments.' },
+  ]}
+/>
+
+<Quiz
+  client:visible
+  question="A desert annual plant grows only after rare, unpredictable rains, flowers once, and dies. Which best explains this life history?"
+  choices={[
+    'The plant cannot evolve iteroparity',
+    'In an unpredictable environment where adults rarely survive to another good year, putting everything into one reproductive event leaves more descendants',
+    'Semelparity always produces more offspring than iteroparity',
+    'K-selection favors semelparity',
+  ]}
+  answer={1}
+  explanation="Semelparity is favored when adults are unlikely to survive to breed again, which is typical of highly variable, unpredictable environments."
+/>
+
+<Quiz
+  client:visible
+  question="Which set of traits is most typical of a K-selected species?"
+  choices={[
+    'Early maturity, many small offspring, little parental care',
+    'Late maturity, few large offspring, extensive parental care',
+    'Early maturity, few offspring, no parental care',
+    'Late maturity, many tiny offspring, short life span',
+  ]}
+  answer={1}
+  explanation="K-selected species live near carrying capacity, where intense competition favors investing heavily in a few well-provisioned offspring."
+/>
+
+<Quiz
+  client:visible
+  question="Researchers clip the fruits off some plants so they can't reproduce one year. Those plants grow larger and survive longer than unclipped plants. What does this show?"
+  choices={[
+    'Reproduction has no cost',
+    'A trade-off between reproduction and survival',
+    'The plants are semelparous',
+    'Density-dependent regulation',
+  ]}
+  answer={1}
+  explanation="Energy not spent on reproduction went into growth and survival, so reproduction carries a survival cost."
+/>

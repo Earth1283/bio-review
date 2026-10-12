@@ -1,0 +1,156 @@
+---
+title: Density, dispersion, and demographics
+order: 1
+summary: How ecologists count a population, describe how it's spread out, and track who is born and who dies.
+---
+
+import Aside from '../../components/Aside.astro';
+import MarkRecapture from '../../components/MarkRecapture.svelte';
+import Dispersion from '../../components/Dispersion.svelte';
+import Survivorship from '../../components/Survivorship.svelte';
+import Flashcards from '../../components/Flashcards.svelte';
+import Quiz from '../../components/Quiz.svelte';
+
+A **population** is a group of individuals of one species living in the same general area at the same time. Members of a population rely on the same resources, are affected by the same environmental factors, and are likely to interact and breed with one another.
+
+This unit covers three ways of describing a population: how crowded it is (**density**), how it's spread out (**dispersion**), and who is being born and dying (**demographics**). All three are shaped by **biotic** factors (living things: food, predators, competitors, disease, mates) and **abiotic** factors (non-living conditions: temperature, water, light, soil, nutrients, disturbances such as fire).
+
+## Density: how many per unit of space
+
+<Aside>
+**Density** is the number of individuals per unit area or volume, such as 120 oak trees per km² or 5 million bacteria per mL.
+</Aside>
+
+You can rarely count every individual, so ecologists sample and scale up.
+
+- **Quadrats**: count individuals in several randomly placed plots, find the average per plot, and multiply up to the whole area. This works best for things that don't move, such as plants and barnacles.
+- **Indirect counts**: count signs of the organism, such as nests, burrows, tracks, or droppings.
+- **Mark–recapture**: for animals that move around. Try it below.
+
+### Mark–recapture
+
+Catch $s$ animals, mark them, and release them. Once they've mixed back in, catch a second sample of $n$ animals and count how many of them, $x$, are marked. If the marked animals make up the same fraction of the second catch as they do of the whole population:
+
+$$
+\frac{x}{n} = \frac{s}{N}
+$$
+
+Rearranged to solve for $N$:
+
+$$
+N = \frac{s \times n}{x}
+$$
+
+<div class="wide">
+  <MarkRecapture client:visible />
+</div>
+
+Use "Catch again" several times on the same pond. Each estimate is a little different, and bigger catches give estimates that land closer to the true number. The method only works if:
+
+- marked and unmarked animals are equally likely to be caught (a trap-shy marked animal makes the estimate too high),
+- the marked animals mix back into the population completely, and
+- there are no births, deaths, immigration, or emigration between the two catches.
+
+### What changes density
+
+<Aside>
+Ecologists write this as $\Delta N = B + I - D - E$ over some stretch of time.
+</Aside>
+
+Density goes **up** with **births** and **immigration** (individuals arriving from elsewhere), and goes **down** with **deaths** and **emigration** (individuals leaving). Each of these four is pushed around by biotic and abiotic factors. A drought raises deaths; a new food source can raise births and draw in immigrants.
+
+## Dispersion: the spacing pattern
+
+**Dispersion** is the pattern of spacing among individuals within the population's boundaries. It's worth knowing because the pattern tells you something about the environment and about how individuals interact.
+
+<div class="wide">
+  <Dispersion client:visible />
+</div>
+
+The tags show whether each cause is **biotic** or **abiotic**. On a test, be ready to name the pattern, give a cause, and say which kind of factor that cause is.
+
+## Demographics: births and deaths by age
+
+**Demography** is the study of the vital statistics of a population and how they change over time. Its main tools are life tables and survivorship curves.
+
+### Life tables
+
+A **life table** is an age-by-age summary of survival. The most common kind follows a **cohort**, a group of individuals of the same age, from birth until all of them have died. Here's one for a made-up cohort of 1,000 beetles:
+
+| Age (years) | Alive at start of year | Died during year | Death rate      |
+| ----------- | ---------------------- | ---------------- | --------------- |
+| 0–1         | 1,000                  | 400              | 400 ÷ 1,000 = 0.40 |
+| 1–2         | 600                    | 150              | 150 ÷ 600 = 0.25   |
+| 2–3         | 450                    | 225              | 225 ÷ 450 = 0.50   |
+| 3–4         | 225                    | 225              | 225 ÷ 225 = 1.00   |
+
+<Aside>
+Demographers usually track only **females** in sexually reproducing species, because only females produce offspring. A **reproductive table** (fertility schedule) lists the average number of female offspring per female at each age.
+</Aside>
+
+The death rate for an age group is the number that died during that interval divided by the number alive at its start.
+
+### Survivorship curves
+
+A **survivorship curve** plots the number of a cohort still alive at each age. It's normally drawn for 1,000 individuals with a **logarithmic** y-axis, so that a constant death rate shows up as a straight line. Ecologists sort curves into three idealized types:
+
+<div class="wide">
+  <Survivorship client:visible />
+</div>
+
+Most real species fall somewhere between these types, or combine them. Many birds, for example, have high mortality as chicks (Type III-like) and then a fairly constant death rate as adults (Type II-like).
+
+## Check yourself
+
+<Flashcards
+  client:visible
+  deck="density-dispersion-demographics"
+  cards={[
+    { front: 'What is population density?', back: 'The number of individuals per unit area or volume.' },
+    { front: 'What is the mark–recapture formula?', back: 'N = (s × n) ÷ x, where s is the number marked in the first catch, n is the size of the second catch, and x is the number of marked individuals in the second catch.' },
+    { front: 'Which four processes change population size?', back: 'Births and immigration add individuals; deaths and emigration remove them.' },
+    { front: 'What is the most common dispersion pattern, and why?', back: 'Clumped, because resources are usually patchy and many animals benefit from living in groups.' },
+    { front: 'What usually causes uniform dispersion?', back: 'Direct interactions between individuals, such as territorial behavior in animals or plants releasing chemicals that inhibit nearby plants.' },
+    { front: 'When does random dispersion happen?', back: 'When individuals neither attract nor repel each other and key resources are spread evenly, for example dandelions from wind-blown seeds.' },
+    { front: 'Give three biotic and three abiotic factors that affect populations.', back: 'Biotic: food, predators, competitors, disease, mates. Abiotic: temperature, water, light, soil and nutrients, disturbances such as fire.' },
+    { front: 'What is a cohort?', back: 'A group of individuals of the same age, followed together from birth.' },
+    { front: 'Describe Type I, II, and III survivorship curves.', back: 'Type I: low death rates until old age (humans). Type II: constant death rate (some rodents and lizards). Type III: very high death rate among the young (oysters, most fish).' },
+  ]}
+/>
+
+<Quiz
+  client:visible
+  question="Researchers catch and band 80 sparrows. A week later they catch 100 sparrows, and 20 of them have bands. What is the estimated population size?"
+  choices={['160', '400', '2,000', '8,000']}
+  answer={1}
+  explanation="N = (s × n) ÷ x = (80 × 100) ÷ 20 = 400."
+/>
+
+<Quiz
+  client:visible
+  question="In the sparrow study, banded birds learned to avoid the traps. How would that affect the estimate?"
+  choices={[
+    'No effect, since the formula accounts for it',
+    'The estimate would be too low',
+    'The estimate would be too high',
+    'The estimate would be impossible to calculate',
+  ]}
+  answer={2}
+  explanation="Fewer banded birds in the second catch means a smaller x. Dividing by a smaller x gives a bigger N, so the population is overestimated."
+/>
+
+<Quiz
+  client:visible
+  question="Gannets nest just out of pecking reach of their neighbors, defending a small space around each nest. What dispersion pattern would you expect?"
+  choices={['Clumped', 'Uniform', 'Random', 'No pattern can be predicted']}
+  answer={1}
+  explanation="Territorial spacing pushes individuals to keep an even distance from each other, which makes a uniform pattern. That cause is biotic."
+/>
+
+<Quiz
+  client:visible
+  question="A sea turtle lays hundreds of eggs, most hatchlings are eaten within days, but adults live for decades. Which survivorship curve fits best?"
+  choices={['Type I', 'Type II', 'Type III', 'None, sea turtles have no survivorship curve']}
+  answer={2}
+  explanation="Huge early losses followed by low adult mortality is the Type III pattern."
+/>

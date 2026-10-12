@@ -1,0 +1,130 @@
+---
+title: Logistic growth
+order: 3
+summary: How growth slows as a population fills up its environment, and levels off at the carrying capacity.
+---
+
+import Aside from '../../components/Aside.astro';
+import NoCalculus from '../../components/NoCalculus.astro';
+import GrowthModel from '../../components/GrowthModel.svelte';
+import Flashcards from '../../components/Flashcards.svelte';
+import Quiz from '../../components/Quiz.svelte';
+
+Exponential growth assumes resources never run out. Real environments fill up. As a population gets more crowded, each individual gets less food, water, space, and shelter, and the population grows more and more slowly. The logistic model describes this.
+
+## Carrying capacity
+
+<Aside>
+**Limiting resources** set $K$: energy, water, nutrients, shelter, nesting sites, and refuges from predators.
+</Aside>
+
+The **carrying capacity**, $K$, is the maximum population size that a particular environment can sustain. It isn't a fixed number for a species. It varies from place to place, and over time in one place, as the amount of limiting resources changes. A wet year can raise $K$ for a grassland mouse population; a drought lowers it.
+
+## The logistic growth equation
+
+The logistic model starts from exponential growth and multiplies it by a term that shrinks as $N$ gets close to $K$:
+
+$$
+\frac{dN}{dt} = r_{\text{max}}N\,\frac{K - N}{K}
+$$
+
+The fraction $\frac{K-N}{K}$ is the share of the carrying capacity that's still unused:
+
+- When $N$ is tiny compared with $K$, the fraction is close to 1, so growth is close to exponential.
+- As $N$ approaches $K$, the fraction approaches 0, and growth slows to a stop.
+- If $N$ is above $K$, the fraction is negative, and the population shrinks back toward $K$.
+
+<NoCalculus>
+
+Again, $\dfrac{dN}{dt}$ just means **how many individuals are being added per unit of time, right now**. The right-hand side is plain arithmetic: (growth rate) × (population) × (fraction of room left).
+
+Take $r_{\text{max}} = 1$ per year and $K = 1{,}000$:
+
+| $N$   | Room left, $\frac{K-N}{K}$ | Added per year, $1 \times N \times$ room left |
+| ----- | -------------------------- | ---------------------------------------------- |
+| 100   | 0.9                        | 90                                             |
+| 250   | 0.75                       | 187.5                                          |
+| 500   | 0.5                        | **250** (the most)                             |
+| 750   | 0.25                       | 187.5                                          |
+| 900   | 0.1                        | 90                                             |
+| 1,000 | 0                          | 0                                              |
+
+Small populations add few individuals because there are few parents. Big populations add few because there's no room left. The middle, $N = K/2$, adds the most.
+
+To see the S-curve without calculus, start at some $N$, add the "per year" amount from the table, and repeat. The steps are small at first, biggest in the middle, and small again near the top.
+
+</NoCalculus>
+
+## The S-shaped curve
+
+Plotted over time, logistic growth makes an **S-shaped** (sigmoid) curve: slow at first, then fast, then leveling off at $K$. Scrub through time with the time slider, and watch the dot on the right-hand chart climb and then come back down the hump.
+
+<div class="wide">
+  <GrowthModel client:visible model="logistic" initialGrowthRate={0.5} initialCarryingCapacity={600} initialPopulation={10} />
+</div>
+
+<Aside>
+Fisheries use this idea. A fish population held near $K/2$ produces the most new fish each year, so in theory it can sustain the largest catch.
+</Aside>
+
+Try these:
+
+- Turn on "Compare with exponential growth". The two curves match at first, then split apart as crowding kicks in.
+- Change $K$. The population levels off wherever $K$ is, but the hump on the right moves too, because the fastest growth is always at $K/2$.
+- Raise $r$. The population gets to $K$ sooner, but it doesn't end up any bigger.
+
+## How well does it fit real populations?
+
+Some lab populations follow it closely. *Paramecium* grown in a constant environment with a steady food supply trace out a nearly perfect S-curve. Most populations don't, because the model makes simplifying assumptions:
+
+- **No time lags.** The model assumes a population reacts instantly to crowding. In reality there's a delay. Water fleas (*Daphnia*), for example, overshoot $K$ because they keep reproducing on stored energy, then crash and oscillate before settling down.
+- **Every new individual reduces growth by the same amount.** In some populations, individuals do better at moderate density than when very rare. This is the **Allee effect**: a single plant is more exposed to wind than one in a clump, and scattered animals may struggle to find mates. Very small populations can then decline toward extinction even with plenty of resources.
+- **$K$ stays constant.** In nature, $K$ shifts with seasons, weather, and other species.
+
+The logistic model is still useful. It's a starting point for asking why a real population behaves differently, and it guides conservation work, such as estimating how quickly an endangered population could recover.
+
+## Check yourself
+
+<Flashcards
+  client:visible
+  deck="logistic-growth"
+  cards={[
+    { front: 'What is carrying capacity (K)?', back: 'The maximum population size a particular environment can sustain. It varies with the availability of limiting resources.' },
+    { front: 'What is the logistic growth equation?', back: 'dN/dt = r_max × N × (K − N) / K' },
+    { front: 'What does (K − N) / K represent?', back: 'The fraction of the carrying capacity that is still unused, so the share of room left to grow.' },
+    { front: 'What shape is a logistic growth curve?', back: 'S-shaped (sigmoid): slow, then fast, then leveling off at K.' },
+    { front: 'At what population size is logistic growth fastest?', back: 'At N = K/2, half the carrying capacity.' },
+    { front: 'What happens in the logistic model if N is greater than K?', back: '(K − N) is negative, so dN/dt is negative and the population shrinks back toward K.' },
+    { front: 'What is the Allee effect?', back: 'Individuals survive or reproduce worse when the population is very small, for example because mates are hard to find, so small populations can decline even with plenty of resources.' },
+    { front: 'Why do some populations overshoot K?', back: 'Time lags: births respond to crowding with a delay (Daphnia, for example, keep reproducing on stored energy), so the population overshoots and then falls back.' },
+  ]}
+/>
+
+<Quiz
+  client:visible
+  question="A deer population has r_max = 0.4 per year, N = 300, and K = 600. How fast is it growing?"
+  choices={['60 deer per year', '120 deer per year', '240 deer per year', '0 deer per year']}
+  answer={0}
+  explanation="dN/dt = 0.4 × 300 × (600 − 300)/600 = 0.4 × 300 × 0.5 = 60 deer per year."
+/>
+
+<Quiz
+  client:visible
+  question="Four populations of the same species share K = 2,000. Which one is adding the most individuals per year?"
+  choices={['N = 200', 'N = 1,000', 'N = 1,800', 'N = 2,000']}
+  answer={1}
+  explanation="Logistic growth is fastest at N = K/2, which here is 1,000."
+/>
+
+<Quiz
+  client:visible
+  question="A lake's food supply doubles. In the logistic model, what changes?"
+  choices={[
+    'r_max doubles, so the population grows twice as fast forever',
+    'K goes up, so the population levels off at a higher size',
+    'Nothing, because the model ignores food',
+    'The curve becomes J-shaped',
+  ]}
+  answer={1}
+  explanation="Food is a limiting resource, so more of it raises the carrying capacity. r_max is the species’ maximum rate under ideal conditions and isn't set by food supply."
+/>

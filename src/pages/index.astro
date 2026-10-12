@@ -1,0 +1,174 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import GrowthModel from '../components/GrowthModel.svelte';
+import { withBase } from '../lib/url';
+
+const unitsInStudyOrder = (await getCollection('units')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Base>
+  <section class="intro">
+    <h1>Why populations grow, and what stops them</h1>
+    <p class="lede">
+      A population ecology review you can run. Drag the growth rate and the carrying capacity, then work through the units
+      in order.
+    </p>
+  </section>
+
+  <div class="hero-model">
+    <GrowthModel client:load hero initialGrowthRate={0.45} initialCarryingCapacity={600} initialPopulation={8} />
+  </div>
+
+  <section id="units" class="units" aria-labelledby="units-heading">
+    <div class="units-heading-row">
+      <h2 id="units-heading">Units</h2>
+      <p class="progress-summary" data-unit-count={unitsInStudyOrder.length} hidden></p>
+    </div>
+    <ol class="unit-list">
+      {
+        unitsInStudyOrder.map((unit) => (
+          <li data-unit-id={unit.id}>
+            <span class="unit-number">{unit.data.order}</span>
+            <div>
+              <a href={withBase(`units/${unit.id}/`)}>{unit.data.title}</a>
+              <span class="reviewed-mark">Reviewed</span>
+              <p>{unit.data.summary}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </section>
+</Base>
+
+<script>
+  import { readReviewedUnitIds } from '../lib/progress';
+
+  function showReviewProgress() {
+    const reviewedIds = readReviewedUnitIds();
+    const unitItems = document.querySelectorAll<HTMLElement>('[data-unit-id]');
+    let reviewedCount = 0;
+    unitItems.forEach((item) => {
+      const isReviewed = reviewedIds.has(item.dataset.unitId ?? '');
+      item.classList.toggle('is-reviewed', isReviewed);
+      if (isReviewed) reviewedCount++;
+    });
+
+    const summary = document.querySelector<HTMLElement>('.progress-summary');
+    if (!summary) return;
+    summary.hidden = reviewedCount === 0;
+    summary.textContent = `You've reviewed ${reviewedCount} of ${unitItems.length}`;
+  }
+
+  document.addEventListener('astro:page-load', showReviewProgress);
+</script>
+
+<style>
+  .intro {
+    max-width: 46rem;
+    padding-top: clamp(2rem, 7vw, 5rem);
+  }
+
+  .lede {
+    font-size: 1.3rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    max-width: var(--measure);
+  }
+
+  .hero-model {
+    margin: 2rem 0 5rem;
+  }
+
+  .units-heading-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem 2rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    margin: 0;
+  }
+
+  .progress-summary {
+    font-family: var(--sans);
+    color: var(--prey);
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .unit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 26rem), 1fr));
+    column-gap: 3rem;
+  }
+
+  .unit-list li {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 0.8rem;
+    margin: 0;
+    padding: 1.4rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .unit-number {
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 300;
+    color: var(--ink-soft);
+    font-variant-numeric: lining-nums;
+  }
+
+  .unit-list a {
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .unit-list a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+
+  .unit-list li {
+    position: relative;
+  }
+
+  .unit-list li:hover a {
+    color: var(--prey);
+  }
+
+  .unit-list p {
+    margin: 0.3rem 0 0;
+    color: var(--ink-soft);
+    font-size: 1rem;
+  }
+
+  .reviewed-mark {
+    display: none;
+    margin-left: 0.6rem;
+    font-family: var(--sans);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--prey);
+  }
+
+  .is-reviewed .reviewed-mark {
+    display: inline;
+  }
+
+  .is-reviewed .unit-number {
+    color: var(--prey);
+  }
+</style>

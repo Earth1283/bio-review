@@ -1,0 +1,139 @@
+---
+title: The human population
+order: 6
+summary: Why the human population is no longer growing exponentially but is still adding tens of millions of people every year.
+---
+
+import Aside from '../../components/Aside.astro';
+import AgePyramid from '../../components/AgePyramid.svelte';
+import Flashcards from '../../components/Flashcards.svelte';
+import Quiz from '../../components/Quiz.svelte';
+
+The same ideas from the earlier units apply to us: growth rates, age structure, carrying capacity. The human population is unusual for how fast it has grown and how quickly that growth is now changing.
+
+## Growth through history
+
+For most of human history the population grew very slowly. Around 1650 there were about 500 million people. Then improvements in agriculture, sanitation, and medicine cut death rates, and growth took off.
+
+| Population reached | Year | Years since the previous billion |
+| ------------------ | ---- | -------------------------------- |
+| 1 billion          | 1804 |                                  |
+| 2 billion          | 1927 | 123                              |
+| 3 billion          | 1960 | 33                               |
+| 4 billion          | 1974 | 14                               |
+| 5 billion          | 1987 | 13                               |
+| 6 billion          | 1999 | 12                               |
+| 7 billion          | 2011 | 12                               |
+| 8 billion          | 2022 | 11                               |
+
+<Aside>
+Under exponential growth with a constant $r$, the time to add each new billion would keep shrinking. Here it stopped shrinking around 1974.
+</Aside>
+
+Look at the last column. Until the 1970s, each new billion arrived faster than the one before, which is what exponential growth looks like. Since then each billion has taken about 12 years. That's not exponential any more. It's closer to adding the same number of people each year.
+
+## No longer exponential, but still increasing extremely rapidly
+
+Remember that exponential growth means a **constant** per capita rate $r$. The human growth rate is not constant:
+
+- It peaked at a little over 2% per year in the 1960s.
+- It has fallen since then, to a little under 1% per year today.
+
+So the human population is **no longer growing exponentially**. But 1% of 8 billion is still a huge number. The world adds roughly **70 million people per year**, which is about the population of France or Thailand every year. That's why the population is **still increasing extremely rapidly** in absolute numbers. The UN's 2024 projections have it peaking at around 10.3 billion in the mid-2080s.
+
+## Regional patterns: the demographic transition
+
+<Aside>
+**Replacement fertility** is about 2.1 children per woman: two to replace the parents, plus a little extra because some children die before they themselves have children. The world average today is about 2.3.
+</Aside>
+
+Growth rates vary enormously between countries. Many countries have gone through the **demographic transition**, a shift from high birth and death rates to low birth and death rates:
+
+1. **High birth rates, high death rates.** The population grows slowly.
+2. **Death rates fall** with better food, clean water, sanitation, and medicine, while birth rates stay high. The population grows fast.
+3. **Birth rates fall**, especially as women gain access to education, jobs, and contraception. Growth slows.
+4. **Low birth rates, low death rates.** The population is stable, or shrinking.
+
+Most industrialized nations are in the last stage. Many countries in sub-Saharan Africa are still in the fast-growing middle stages, and that's where most future growth will happen.
+
+## Age structure
+
+The **age structure** of a population is the relative number of individuals of each age. It's usually drawn as a pyramid, with males on one side and females on the other.
+
+<div class="wide">
+  <AgePyramid client:visible />
+</div>
+
+Age structure predicts the future. A wide base means a large generation is about to reach reproductive age. Even if each of those people has only two children, there are so many of them that the population keeps growing for decades. This is called **population momentum**.
+
+Age structure also shapes social needs: schools and jobs for a young population, health care and pensions for an older one.
+
+### Infant mortality and life expectancy
+
+**Infant mortality** (the number of infant deaths per 1,000 live births) and **life expectancy at birth** differ hugely between countries. Both reflect the quality of life children are born into, and they tend to move together: where infant mortality is high, life expectancy is low.
+
+## Global carrying capacity
+
+<Aside>
+An **ecological footprint** is the total area of land and water needed to produce everything a person or nation uses and absorb all its waste.
+</Aside>
+
+How many people can Earth support? Estimates vary enormously, because the answer depends on how people live. A population that eats less meat and uses less energy has a smaller **ecological footprint** per person, so more people fit. People in wealthy countries have footprints several times larger than people in the poorest countries.
+
+Unlike most species, humans can change their own carrying capacity, through agriculture and technology for example. Whether the population levels off through falling birth rates, or through rising death rates as resources run short, is still being decided.
+
+## Check yourself
+
+<Flashcards
+  client:visible
+  deck="human-population"
+  cards={[
+    { front: 'Is the human population growing exponentially? Why or why not?', back: 'No. Exponential growth requires a constant per capita rate, and the human growth rate has fallen from just over 2% per year in the 1960s to under 1% today.' },
+    { front: 'Why is the human population still increasing rapidly?', back: 'Even a small rate applied to about 8 billion people adds roughly 70 million people per year.' },
+    { front: 'What is the demographic transition?', back: 'The shift from high birth and death rates to low birth and death rates, which usually happens as a country industrializes.' },
+    { front: 'In the demographic transition, which falls first: birth rates or death rates?', back: 'Death rates fall first, so the population grows rapidly until birth rates fall too.' },
+    { front: 'What is replacement fertility?', back: 'About 2.1 children per woman: enough to replace both parents, allowing for some children dying before reproducing.' },
+    { front: 'What is age structure?', back: 'The relative number of individuals of each age in a population, usually shown as a pyramid.' },
+    { front: 'What is population momentum?', back: 'Continued growth after fertility falls to replacement, because a large young generation is still entering its reproductive years.' },
+    { front: 'What is an ecological footprint?', back: 'The total area of land and water needed to produce the resources a person or nation uses and to absorb its waste.' },
+  ]}
+/>
+
+<Quiz
+  client:visible
+  question="A country's fertility rate has just dropped to replacement level, but its age-structure pyramid has a very wide base. What will happen to its population over the next few decades?"
+  choices={[
+    'It will immediately stop growing',
+    'It will keep growing, because many young people are about to reach reproductive age',
+    'It will shrink, because fertility has fallen',
+    'It will grow exponentially',
+  ]}
+  answer={1}
+  explanation="This is population momentum. The large young generation will have children even at replacement fertility, so the population keeps growing for a while."
+/>
+
+<Quiz
+  client:visible
+  question="The time to add each new billion people has stayed around 12 years since the 1970s. What does this tell you?"
+  choices={[
+    'The population is growing exponentially',
+    'The population has stopped growing',
+    'The per capita growth rate is falling, so growth is no longer exponential, but the population is still increasing fast',
+    'The per capita growth rate is rising',
+  ]}
+  answer={2}
+  explanation="With a constant r, each billion would come faster than the last. A steady interval means the rate r has fallen while N has grown, so the number added per year stays roughly constant."
+/>
+
+<Quiz
+  client:visible
+  question="In stage 2 of the demographic transition, why does the population grow so fast?"
+  choices={[
+    'Birth rates rise sharply',
+    'Death rates fall while birth rates stay high',
+    'Immigration increases',
+    'Both birth and death rates fall at the same time',
+  ]}
+  answer={1}
+  explanation="Better food, water, and medicine cut death rates first. Birth rates take longer to fall, so for a while births far outnumber deaths."
+/>
