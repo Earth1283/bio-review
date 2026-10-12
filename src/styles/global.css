@@ -32,12 +32,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #142020;
-    --paper-raised: #1a2928;
-    --ink: #e4ece8;
-    --ink-soft: #9fb2ad;
-    --rule: #2f4240;
-    --grid: #213130;
+    --paper: #1e1f22;
+    --paper-raised: #26272b;
+    --ink: #dcdcd8;
+    --ink-soft: #a3a5a8;
+    --rule: #3a3c41;
+    --grid: #2c2d31;
     --prey: #5fc3a8;
     --predator: #e2aa4c;
     --third: #a898e6;
