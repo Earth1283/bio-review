@@ -1,8 +1,8 @@
 # Carrying Capacity
 
-An interactive population ecology review, published at https://earth1283.github.io/bio-review/.
+An interactive population and community ecology review, published at https://earth1283.github.io/bio-review/.
 
-Six units, following the usual intro-biology sequence:
+Seven units, following the usual intro-biology sequence:
 
 1. Density, dispersion, and demographics
 2. Exponential growth
@@ -10,6 +10,7 @@ Six units, following the usual intro-biology sequence:
 4. Life history traits
 5. Density-dependent regulation
 6. The human population
+7. Community ecology
 
 ## Running it locally
 
@@ -44,7 +45,8 @@ Components you can drop into a unit:
 | `<Flashcards deck="unique-id" cards={[{ front, back }]} />` | Flip cards; known cards are remembered per browser |
 | `<Quiz question choices answer explanation />` | One multiple-choice question; `answer` is the zero-based index |
 | `<GrowthModel model="exponential" \| "logistic" />` | Growth curve with sliders |
-| `<MarkRecapture />`, `<Dispersion />`, `<Survivorship />`, `<DensityDependence />`, `<PredatorPrey />`, `<AgePyramid />` | The unit-specific simulations |
+| `<MarkRecapture />`, `<Dispersion />`, `<Survivorship />`, `<DensityDependence />`, `<PredatorPrey />`, `<AgePyramid />` | The population-unit simulations |
+| `<InteractionTypes />`, `<Diversity />`, `<Disturbance />`, `<IslandBiogeography />` | The community ecology simulations |
 
 Svelte components need a `client:visible` directive to be interactive. Wrap figures in `<div class="wide">` to let them extend into the margin on wide screens.
 

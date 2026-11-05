@@ -1,0 +1,432 @@
+---
+title: Community ecology
+order: 7
+summary: How species help, harm, and ignore each other, and what shapes the number and kinds of species that live together.
+---
+
+import Simple from '../../components/Simple.astro';
+import Aside from '../../components/Aside.astro';
+import InteractionTypes from '../../components/InteractionTypes.svelte';
+import Diversity from '../../components/Diversity.svelte';
+import Disturbance from '../../components/Disturbance.svelte';
+import IslandBiogeography from '../../components/IslandBiogeography.svelte';
+import Flashcards from '../../components/Flashcards.svelte';
+import Quiz from '../../components/Quiz.svelte';
+
+<Simple>
+
+So far this site has looked at one kind of living thing at a time. But no species lives alone. This unit zooms out to the whole neighborhood: all the different kinds of living things in one place, and how they affect each other.
+
+</Simple>
+
+Earlier units followed a single **population**: members of one species in one place. A **community** is all the populations of different species living in the same area at the same time. Community ecology asks what determines which species live together, how many there are, and how they affect each other.
+
+There are five big ideas:
+
+1. Interactions between species can help, harm, or have no effect on the individuals involved.
+2. Diversity and trophic structure characterize biological communities.
+3. Disturbance influences species diversity and composition.
+4. Biogeographic factors affect community diversity.
+5. Pathogens alter community structure locally and globally.
+
+## Species interactions
+
+<Simple>
+
+Two kinds of living things that share a place can affect each other in three ways: good, bad, or not at all. Scientists write this as a plus (+), a minus (−), or a zero (0) for each one.
+
+- **Competition (− −):** both lose, because they fight over the same food or space.
+- **Eating or being a parasite (+ −):** one wins and the other loses.
+- **Mutualism (+ +):** both win. Bees get nectar, and flowers get pollen carried to other flowers.
+- **Commensalism (+ 0):** one wins and the other doesn't notice.
+
+Try the buttons below to see them all.
+
+</Simple>
+
+<Aside>
+Ecologists label an interaction by its effect on each species, using **+**, **−**, or **0**. A (+/−) interaction between a predator and its prey is the same type no matter which species you call "A".
+</Aside>
+
+Species interact in many ways, and each interaction can be described by its effect on the individuals involved: positive, negative, or none.
+
+<div class="wide">
+  <InteractionTypes client:visible />
+</div>
+
+Pick "Harmed" for both species and you get competition. Pick "Helped" for both and you get mutualism. The next three parts look at the main types in turn.
+
+### Competition (−/−)
+
+<Simple>
+
+When two kinds of living things need the same thing and there isn't enough for both, they compete. One of them usually does better.
+
+Two species that need *exactly* the same things can't live together for long. One of them wins and the other disappears or moves away. The usual way out is to **share differently**: each species uses a slightly different part of the same place or food. Then they can both stay.
+
+</Simple>
+
+**Interspecific competition** happens when individuals of different species use the same limited resource, such as light, water, nutrients, or space. Both species end up with fewer offspring or lower survival than they would have alone.
+
+- **Competitive exclusion principle:** two species that need the same limiting resource in the same way cannot coexist for long. One will use the resource better and eliminate the other from that area. In a classic experiment, *Paramecium aurelia* and *Paramecium caudatum* both grew well alone in a test tube. Together, *P. aurelia* drove *P. caudatum* to extinction.
+- **Ecological niche:** the full set of abiotic and biotic resources a species uses, and the conditions it tolerates. The **fundamental niche** is where a species could live without competitors. The **realized niche** is the smaller part where it actually lives once competitors are present. Connell's barnacles show this: *Chthamalus* could live across the rocky shore, but *Balanus* pushed it out of the lower zone, so it was only found higher up.
+- **Resource partitioning:** species with similar needs divide the resource up, for example by feeding in different places or at different times. MacArthur found that several warbler species could share the same spruce trees by foraging in different parts of the tree.
+- **Character displacement:** where two similar species live in the same area, natural selection can push their traits apart, which reduces competition. Some Galápagos finches have very different beak sizes where they live together, and more similar beaks where each lives alone.
+
+### Exploitation (+/−)
+
+<Simple>
+
+Sometimes one kind of living thing gets what it needs by hurting another:
+
+- **Predator:** kills and eats another animal.
+- **Herbivore:** eats plants.
+- **Parasite:** lives on or inside another living thing and feeds on it, usually without killing it right away.
+
+Both sides evolve defenses and tricks. Prey hide, run, taste bad, or copy something that tastes bad. Plants grow thorns and make poisons.
+
+</Simple>
+
+In **exploitation**, one species benefits and the other is harmed. It includes several kinds of relationships:
+
+- **Predation:** one animal kills and eats another.
+- **Herbivory:** an animal eats parts of a plant or alga.
+- **Parasitism:** a parasite lives on or in a host and feeds on it, usually without killing it quickly. **Endoparasites** live inside the host (tapeworms), and **ectoparasites** live on its surface (ticks). A **parasitoid**, such as many wasps, lays eggs in a host, and the larvae eventually kill it.
+
+Because exploitation harms one side, natural selection favors defenses in prey and hosts, and better ways of getting past those defenses in predators and parasites. That back-and-forth is **coevolution**. Common defenses include:
+
+| Defense | What it does | Example |
+| --- | --- | --- |
+| **Cryptic coloration** | Camouflage that makes prey hard to see | A stick insect on a twig |
+| **Aposematic coloration** | Bright warning colors that advertise a bad taste or poison | Poison dart frogs, monarch caterpillars |
+| **Batesian mimicry** | A harmless species looks like a harmful one | A hoverfly with wasp stripes |
+| **Müllerian mimicry** | Two or more harmful species look alike, so predators learn faster | Different stinging wasps and bees with yellow-and-black stripes |
+| **Chemical defenses in plants** | Toxins or bad-tasting chemicals discourage herbivores | Nicotine in tobacco, tannins in oak leaves |
+| **Physical defenses** | Thorns, spines, tough leaves | Acacia thorns, cactus spines |
+
+### Positive interactions (+/+ and +/0)
+
+<Simple>
+
+Some partnerships help one or both sides.
+
+- **Mutualism:** both sides win. Bees get food from flowers, and flowers get carried to other flowers. Your gut bacteria get a home, and you get help digesting food.
+- **Commensalism:** one side wins and the other isn't bothered. An orchid growing on a tree branch gets light. The tree is mostly fine.
+
+Scientists can almost never be 100% sure the second side isn't affected at all.
+
+</Simple>
+
+In **mutualism** both species benefit. Many are essential: most land plants depend on mycorrhizal fungi to take up nutrients, legumes house nitrogen-fixing bacteria in their roots, and flowering plants trade nectar for pollination.
+
+In **commensalism** one species benefits and the other is unaffected. Epiphytes such as orchids and bromeliads that grow on the branches of rainforest trees get light and the tree is not noticeably harmed. This is hard to demonstrate, because the "unaffected" partner is usually affected a little.
+
+Ecologists also use the broader word **facilitation** for any interaction where one species makes conditions better for another, including (+/0) and (+/+) relationships. Facilitation is especially important in harsh environments, where shade or shelter provided by one species allows another to survive.
+
+## Diversity and trophic structure
+
+<Simple>
+
+Two big things describe a community: *who* is in it, and *who eats whom*.
+
+**Diversity** has two parts: how many different species there are (**richness**), and how evenly the individuals are spread among them (**evenness**). A forest with 10 species where 9 out of every 10 trees are the same kind is less diverse than a forest where all 10 are about equally common.
+
+**Trophic structure** is the feeding order: plants make food from sunlight, animals eat the plants, bigger animals eat those animals, and decomposers break down whatever dies.
+
+</Simple>
+
+### Species diversity
+
+**Species diversity** has two components:
+
+- **Species richness:** the number of different species in the community.
+- **Relative abundance:** the proportion of all individuals that belong to each species. A community where each species is about equally common has high **evenness**.
+
+Two communities can have the same richness and very different diversity. Ecologists often combine both into one number, such as the **Shannon diversity index**:
+
+$$
+H' = -\sum_{i} p_i \ln p_i
+$$
+
+where $p_i$ is the proportion of individuals that belong to species $i$. You multiply each species' proportion by the natural log of that proportion, add them up, and flip the sign. $H'$ is higher when there are more species and when they are more even.
+
+<div class="wide">
+  <Diversity client:visible />
+</div>
+
+Start with "Evenly spread" and then try "One dominant species". Both have four species, but the second has a much lower $H'$. Then slide species to zero and watch richness drop.
+
+### Trophic structure
+
+<Simple>
+
+The feeding order is called a **food chain**: sun → grass → grasshopper → frog → snake → hawk. Real life is messier, because most animals eat more than one thing, so ecologists draw a **food web** with lots of crossing lines.
+
+Each step up is a **trophic level**. A step up has much less energy than the one below, since each animal uses most of the energy it eats just to live. That is why there are far more grasshoppers than hawks.
+
+**Bottom-up:** the amount of nutrients and plants controls everything above it. **Top-down:** the top predators control everything below them.
+
+</Simple>
+
+**Trophic structure** is the feeding relationships in a community, and it determines how energy and nutrients move through it. A **trophic level** is a feeding position in the chain:
+
+1. **Primary producers** (plants, algae, photosynthetic bacteria) make their own food.
+2. **Primary consumers** eat producers (herbivores).
+3. **Secondary consumers** eat primary consumers.
+4. **Tertiary and quaternary consumers** eat consumers at the level below.
+5. **Detritivores and decomposers** feed on dead material from every level and return nutrients to the soil.
+
+A **food chain** follows a single path of energy from producers to a top predator. Real communities have many overlapping chains, so ecologists draw **food webs** instead. Only about 10% of the energy at one trophic level reaches the next, because most is used for the organism's own metabolism or lost as heat. That limits how many trophic levels a community can support, usually to four or five.
+
+Two models describe what controls community structure:
+
+- **Bottom-up control:** nutrients and producers limit each level above them. Adding nutrients (like fertilizer) raises abundance at every level.
+- **Top-down control (trophic cascade):** predators limit their prey, and this ripples down the chain. Removing a top predator can let its prey increase and reduce the prey's own food.
+
+Many communities show both. Ecologists have used the idea in lakes: stocking a lake with piscivores (fish-eating fish) reduces the number of small fish, which lets zooplankton increase, which reduces algae, so the water gets clearer.
+
+### Dominant and keystone species
+
+<Simple>
+
+Some species matter much more than their numbers suggest.
+
+- A **dominant species** is the most common or biggest in the place, like the sugar maple in a maple forest.
+- A **keystone species** isn't necessarily common, but the whole community changes if you take it away, like the top stone in an arch.
+- A **foundation species** (or ecosystem engineer) builds the place everybody else lives in, like beavers making ponds or kelp making an underwater forest.
+
+</Simple>
+
+Not all species matter equally for community structure.
+
+- A **dominant species** is the most abundant, or has the highest total biomass, in the community. It usually competes successfully for resources. Remove it and the community changes, but often only slowly.
+- A **keystone species** has an effect on the community that is far larger than its abundance would suggest. In Robert Paine's experiment on the Washington coast, he removed the sea star *Pisaster ochraceus* from tide pools. Its main prey, mussels, spread and crowded out other species, and the number of species fell from about 15 to 8.
+- **Foundation species** (also called **ecosystem engineers**) change the physical environment and create habitat for others. Beavers build dams that make wetlands. Kelp and corals build the structure of their ecosystems.
+
+Sea otters show a trophic cascade and a keystone effect together. Otters eat sea urchins, and urchins eat kelp. Where otters were hunted out, urchins multiplied and grazed the kelp forests into "urchin barrens". When otters returned, kelp forests recovered, along with the fish and invertebrates that live in them.
+
+## Disturbance
+
+<Simple>
+
+A **disturbance** is something that suddenly changes a place: a fire, a storm, a flood, a landslide, a volcano, or humans clearing land.
+
+It might sound like disturbance is always bad, but a *medium* amount can actually make a place have **more** kinds of living things. With almost none, a few strong species take over everything. With too much, only the toughest few survive. With a medium amount, lots of species fit.
+
+After a disturbance, living things move back in, in a fairly predictable order. That is called **succession**.
+
+</Simple>
+
+A **disturbance** is an event that damages or removes organisms and changes resources or the physical environment. Examples include fires, storms, floods, droughts, landslides, volcanic eruptions, and human activity such as logging and grazing. Disturbances vary in **frequency**, **intensity** (how severe), and **size**.
+
+### The intermediate disturbance hypothesis
+
+The **intermediate disturbance hypothesis** says species diversity is highest at moderate levels of disturbance:
+
+- **Low disturbance:** the best competitors are never knocked back, so they take over and exclude other species.
+- **Intermediate disturbance:** competitors are kept in check, which leaves room for fast-colonizing species too. Many types of species coexist.
+- **High disturbance:** only the species that can tolerate frequent or severe damage, or recolonize quickly, are left.
+
+<div class="wide">
+  <Disturbance client:visible />
+</div>
+
+Drag the slider to each end and look at who is living there. At the left, strong competitors fill the bar. At the right, it is all fast colonizers. Diversity peaks in the middle.
+
+Connell proposed this after studying tropical rain forests and coral reefs. On the Great Barrier Reef, reefs hit by storms of moderate frequency had more coral species than reefs that were hardly disturbed or that were battered constantly. The hypothesis is still tested and debated, and not every community shows a clear peak.
+
+### Ecological succession
+
+**Ecological succession** is the change in species composition over time after a disturbance.
+
+| Type | Starting point | Example | Speed |
+| --- | --- | --- | --- |
+| **Primary succession** | Bare ground with no soil | Land exposed by a retreating glacier, new volcanic rock | Very slow, since soil must form first |
+| **Secondary succession** | Soil remains after the disturbance | An abandoned farm field, a burned forest | Faster, since seeds, roots, and soil are still there |
+
+Early on, **pioneer species** such as lichens and mosses colonize bare rock. They break it down and help form soil. Later, grasses and shrubs arrive, then fast-growing trees, and finally shade-tolerant trees in a **climax community**. In reality, many communities never reach a single stable endpoint, because disturbance returns before they do.
+
+The 1988 Yellowstone fires burned huge areas, but within a few years lodgepole pine seedlings and wildflowers were growing in the ash, because seeds and soil had survived. That is secondary succession. By contrast, the volcanic island of Surtsey, which rose from the sea off Iceland in 1963, began with bare lava and no soil.
+
+## Biogeography
+
+<Simple>
+
+**Biogeography** asks why different places have different numbers of species.
+
+- **Latitude:** the tropics, near the equator, have the most species. The poles have the fewest. The tropics are warmer and wetter, and have been that way for a very long time.
+- **Island size:** bigger islands have more species.
+- **Island distance:** islands close to land have more species than islands far from land, because it's easier for living things to get there.
+
+Species keep arriving on an island and keep disappearing from it, so the number stays about the same even though the actual species change.
+
+</Simple>
+
+**Biogeography** is the study of how species are distributed across space and why. Two patterns matter most for community diversity.
+
+### Latitude
+
+Species richness increases from the poles toward the equator. This **latitudinal gradient** holds for plants, birds, mammals, insects, and many marine groups. Several factors seem to contribute:
+
+- **Energy and water.** The tropics get more solar energy and more rainfall, so primary productivity is high. For plants, **actual evapotranspiration** (the water evaporated from soil plus transpired by plants) is one of the best predictors of richness.
+- **Time and stability.** Tropical regions have been warm for much longer and were less affected by the glaciers that wiped out communities in the north, so there has been more time for species to evolve and accumulate.
+- **Climate stability.** Steadier conditions throughout the year may let species specialize more narrowly.
+
+### Island size and distance
+
+Island communities are a natural test of how diversity is determined. Two patterns appear again and again:
+
+- **Species–area relationship:** larger areas hold more species. As a rule of thumb, a tenfold increase in area roughly doubles the number of species. Larger areas have more habitat types and larger populations, which are less likely to go extinct.
+- **Distance effect:** islands near the mainland have more species than equally sized islands far away, because colonizers reach them more easily.
+
+In 1967, Robert MacArthur and E. O. Wilson combined these ideas into the **equilibrium model of island biogeography**:
+
+- The **immigration rate** of new species falls as the island fills up, because fewer of the arriving species are new. It is lower on distant islands.
+- The **extinction rate** rises as the island fills up, because populations are smaller and compete more. It is higher on small islands.
+- Where the two curves cross is the **equilibrium number of species**. Species keep coming and going, so the *number* stays steady even though *which* species are present keeps changing.
+
+<div class="wide">
+  <IslandBiogeography client:visible />
+</div>
+
+<Aside>
+The same logic applies to "islands" on land: mountaintops, lakes, and forest fragments surrounded by farmland. That is why habitat fragmentation lowers diversity.
+</Aside>
+
+Try the four presets. A near, large island holds the most species. A far, small island holds the fewest. The two sliders change the immigration and extinction lines independently, so you can see which one moves the equilibrium.
+
+## Pathogens
+
+<Simple>
+
+A **pathogen** is a germ (a virus, bacteria, fungus, or similar) that causes disease. Pathogens are part of every community, and sometimes they change it a lot.
+
+- When a pathogen hits a very common species, that species can shrink a lot, and everything that depended on it is affected.
+- When humans carry a pathogen around the world to a place where nobody has any protection against it, the damage can be huge.
+
+Disease can change a single forest, and it can also change the whole planet.
+
+</Simple>
+
+A **pathogen** is an organism or virus that causes disease. Pathogens are part of the biotic environment of every community. Because they can kill or weaken large numbers of a host species, they can reshape the community around it.
+
+**Locally**, a pathogen can change which species are dominant:
+
+- **Chestnut blight.** A fungus (*Cryphonectria parasitica*) accidentally introduced from Asia around 1900 killed billions of American chestnut trees. Chestnuts had been among the most common trees in eastern U.S. forests. Oaks and hickories filled the gaps, and the animals that depended on chestnuts had to switch.
+- **Sudden oak death and Dutch elm disease** have likewise stripped dominant trees from forests and city streets.
+- **Pathogens as competitive weapons.** Gray squirrels, introduced to Britain from North America, carry a virus (squirrelpox) that barely affects them and often kills native red squirrels. The disease helps the gray squirrel win a competition it might not win otherwise.
+- **Pathogens that maintain diversity.** Some pathogens attack only one host species and spread best where it is common. This slows down any one species from taking over, which can keep diversity higher. It acts as density-dependent regulation, as in the previous unit.
+
+**Globally**, humans move pathogens around the world through trade and travel, and climate change is shifting where many can survive:
+
+- **Chytrid fungus** (*Batrachochytrium dendrobatidis*) infects amphibian skin. It has spread across the world and is linked to population declines in hundreds of amphibian species and extinctions in some, including the golden toad of Costa Rica.
+- **White-nose syndrome**, caused by a fungus that grows on hibernating bats, was first seen in New York in 2006 and has killed millions of North American bats. Fewer bats means fewer insects eaten, which affects the whole food web.
+- **Rinderpest** was a virus that killed vast numbers of wildebeest and cattle in the Serengeti. After vaccination removed it in the 1960s, wildebeest numbers climbed several-fold. More grazing meant less dry grass to burn, so there were fewer fires and more trees survived. So removing a pathogen changed the community too.
+
+Many of the pathogens behind new human diseases, such as COVID-19, are thought to have come from wild animals. Ecologists therefore treat the health of wildlife, livestock, and people as linked, an idea sometimes called **One Health**.
+
+## Check yourself
+
+<Flashcards
+  client:visible
+  deck="community-ecology"
+  cards={[
+    { front: 'What is a community?', back: 'All the populations of different species living in the same area at the same time.' },
+    { front: 'Name the main types of species interaction by their effects (+, −, 0).', back: 'Competition (−/−), exploitation (+/−: predation, herbivory, parasitism), mutualism (+/+), and commensalism (+/0).' },
+    { front: 'State the competitive exclusion principle.', back: 'Two species that use the same limiting resource in the same way cannot coexist for long. The better competitor eliminates the other from that area.' },
+    { front: 'Fundamental niche vs. realized niche?', back: 'The fundamental niche is where a species could live without competitors. The realized niche is the smaller part where it actually lives, given competitors.' },
+    { front: 'What is resource partitioning?', back: 'Competing species with similar needs divide up a resource (by place, time, or type), so they can coexist.' },
+    { front: 'Batesian vs. Müllerian mimicry?', back: 'Batesian: a harmless species looks like a harmful one. Müllerian: two or more harmful species look like each other.' },
+    { front: 'What are the two components of species diversity?', back: 'Species richness (how many species) and relative abundance or evenness (how equally common each one is).' },
+    { front: 'What is a trophic cascade?', back: 'Top-down effects that ripple down a food chain. For example, sea otters eat urchins, which lets kelp thrive.' },
+    { front: 'What is a keystone species? Give an example.', back: 'A species with an effect on its community far larger than its abundance suggests. Example: the sea star Pisaster. Removing it dropped tide-pool diversity from about 15 species to 8.' },
+    { front: 'Dominant vs. keystone species?', back: 'A dominant species is the most abundant or has the most biomass. A keystone species has a disproportionately large effect given how rare it may be.' },
+    { front: 'State the intermediate disturbance hypothesis.', back: 'Species diversity is highest at moderate levels of disturbance. Low disturbance allows competitive exclusion, and high disturbance eliminates all but the most tolerant species.' },
+    { front: 'Primary vs. secondary succession?', back: 'Primary starts with no soil (bare rock, glacial till, new lava) and is slow. Secondary starts after a disturbance leaves soil intact, and is faster.' },
+    { front: 'What is the latitudinal diversity gradient?', back: 'Species richness increases from the poles toward the equator, linked to more energy and water, more time, and a more stable climate.' },
+    { front: 'What are the two main island biogeography rules?', back: 'Larger islands hold more species (species–area relationship), and islands nearer the mainland hold more species than distant ones.' },
+    { front: 'What sets the equilibrium number of species on an island?', back: 'The point where the immigration rate (which falls as the island fills) equals the extinction rate (which rises).' },
+    { front: 'How can pathogens change communities? Give examples.', back: 'They can remove dominant species (chestnut blight), help one species outcompete another (squirrelpox), and cause declines across wide areas (chytrid fungus in amphibians, white-nose syndrome in bats).' },
+  ]}
+/>
+
+<Quiz
+  client:visible
+  question="Two species of barnacle live on a rocky shore. When the larger species is removed, the smaller one spreads into the lower zone it was previously absent from. What does this show?"
+  choices={[
+    'Mutualism between the two species',
+    'The smaller species’ realized niche was smaller than its fundamental niche because of competition',
+    'The larger species was a keystone species',
+    'Character displacement'
+  ]}
+  answer={1}
+  explanation="The smaller species could live in the lower zone all along (its fundamental niche), but competition kept it out. Removing the competitor let it expand into its fundamental niche."
+/>
+
+<Quiz
+  client:visible
+  question="A bright orange caterpillar tastes terrible and is avoided by birds. A harmless moth caterpillar has evolved the same orange coloring. What is the moth's strategy?"
+  choices={['Müllerian mimicry', 'Cryptic coloration', 'Batesian mimicry', 'Commensalism']}
+  answer={2}
+  explanation="A harmless species that copies the warning signal of a harmful one is Batesian mimicry. In Müllerian mimicry, both species are actually harmful."
+/>
+
+<Quiz
+  client:visible
+  question="Community X has 5 species with 20 individuals each. Community Y has 5 species, with 96 individuals of one species and 1 individual of each of the others. Which statement is correct?"
+  choices={[
+    'X has higher richness than Y',
+    'X and Y have the same richness, but X has higher evenness and a higher Shannon index',
+    'Y has higher diversity because it has more individuals of one species',
+    'X and Y have the same diversity because they have the same richness'
+  ]}
+  answer={1}
+  explanation="Both have five species, so richness is equal. In X every species is equally common, so evenness and the Shannon index are at their maximum. Y is dominated by one species."
+/>
+
+<Quiz
+  client:visible
+  question="Researchers remove the top predator from a lake. The small fish it ate increase, zooplankton decrease, and algae bloom. This is an example of:"
+  choices={['Bottom-up control', 'A trophic cascade', 'Primary succession', 'Resource partitioning']}
+  answer={1}
+  explanation="Changes at the top of the food chain travel downward through the trophic levels. That is a top-down effect, or trophic cascade."
+/>
+
+<Quiz
+  client:visible
+  question="A forest is hit by a moderate-intensity fire every 15 to 20 years and has more tree and plant species than nearby forests that have gone 200 years without a fire or that burn every year. Which idea explains this?"
+  choices={[
+    'The equilibrium model of island biogeography',
+    'The competitive exclusion principle alone',
+    'The intermediate disturbance hypothesis',
+    'The latitudinal diversity gradient'
+  ]}
+  answer={2}
+  explanation="Moderate disturbance knocks back dominant competitors without eliminating the rest, so many species coexist. Without fire, competitive exclusion wins out. With constant fire, only a few tolerant species survive."
+/>
+
+<Quiz
+  client:visible
+  question="Compare two islands of the same size. Island P is 10 km from the mainland, and Island Q is 400 km away. According to the equilibrium model of island biogeography, which prediction is correct?"
+  choices={[
+    'P will have more species at equilibrium because its immigration rate is higher',
+    'Q will have more species at equilibrium because its extinction rate is lower',
+    'Both will have the same number of species because they are the same size',
+    'P will have fewer species because competition is stronger there'
+  ]}
+  answer={0}
+  explanation="Distance changes the immigration rate, not the extinction rate. Nearby P receives more colonizers, so its immigration curve is higher and it crosses the extinction curve at a larger number of species."
+/>
+
+<Quiz
+  client:visible
+  question="After chestnut blight eliminated American chestnut from eastern forests, oaks and hickories became more common. What does this show about pathogens?"
+  choices={[
+    'Pathogens only affect individual organisms, not communities',
+    'A pathogen that kills a dominant species can change which species dominate the whole community',
+    'Pathogens always increase biodiversity',
+    'Pathogens only matter for human communities'
+  ]}
+  answer={1}
+  explanation="Killing a dominant species frees up space and resources for others. Pathogens can reshape community structure, and introduced pathogens can do so across a whole region."
+/>
